@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  addNewPicture() {
-    console.log('added new picture');
+
+  /**
+   * Accesses GalleryComponents generate image function
+   * and adds an image to the front of the pictures array.
+   * 
+   * @param gallery the template variable for GalleryComponent
+   */
+  addNewPicture(gallery: GalleryComponent) {
+    gallery.pictures.unshift(gallery.generateImage())
   }
 
-  removeFirstPicture() {
-    console.log('removed first picture');
+  /**
+   * Accesses GalleryComponents pictures array and removes the first value.
+   * 
+   * @param gallery he template variable for GalleryComponent
+   */
+  removeFirstPicture(gallery: GalleryComponent) {
+    gallery.pictures.shift();
   }
 }

@@ -9,8 +9,10 @@ export class VcLogsComponent implements OnChanges {
   @Input() vName = '';
   logs: string[] = [];
 
-  // initially runs before ngOnInit, and on every subsequent change detection
+  // get initial value before ngOnInit, and updated values later on
   ngOnChanges(changes: SimpleChanges): void {
+    // SimpleChanges holds a property for each @Input
+    
     // get the changed value for vName input property
     const { currentValue } = changes['vName'];
 
