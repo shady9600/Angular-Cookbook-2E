@@ -1,6 +1,6 @@
 <ul>
   @for (user of users; track user.uuid) {
-    <li>
+    <li routerLink="/{{ user.uuid }}">
       <img src="{{user.picture.thumbnail}}"/>
       <h4>{{user.name.first}} {{user.name.last}}</h4>
     </li>
