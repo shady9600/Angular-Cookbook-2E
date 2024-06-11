@@ -4,9 +4,9 @@
   appName="cc-inputs-outputs"
   ><div class="spacer"></div>
   <div class="notif-bell">
-    <app-notifications-button></app-notifications-button></div
+    <app-notifications-button [count]="notificationsCount"></app-notifications-button></div
 ></ng-cb-ui-header>
 
 <div class="content" role="main">
-  <app-notifications-manager></app-notifications-manager>
+  <app-notifications-manager [count]="notificationsCount" (countChange)="onCountChange($event)"></app-notifications-manager>
 </div>
