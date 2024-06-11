@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+  // Finds the first element matching the view query and assigns it to this property
+  // Component type must be defined 
+  @ViewChild(GalleryComponent) gallery!: GalleryComponent;
+
   addNewPicture() {
-    console.log('added new picture');
+    this.gallery.pictures.unshift(this.gallery.generateImage());
   }
 
   removeFirstPicture() {
-    console.log('removed first picture');
+    this.gallery.pictures.shift();
   }
 }
